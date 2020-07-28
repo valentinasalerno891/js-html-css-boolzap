@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+body {
+    background-color: #f8ddb5;
+}
+
+.container-app {
+    width: 80vw;
+    height: 90vh;
+    background-color: white;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+header {
+    background-color: tomato;
+    height: 60px;
+    width: 100%;
+}
+
+aside {
+    height: calc(100% - 60px);
+    width: 400px;
+    background-color: lightgrey;
+}
+
+.bar-notifiche {
+    height: 60px;
+    width: 400px;
+    background-color: grey;
+}
+
+.search-bar {
+    height: 40px;
+    width: 400px;
+    background-color: white;
+}
+
+.contatti {
+    height: calc(100% - 100px);
+    overflow-y: scroll;
+}
+
+main {
+    width: calc(100% - 400px);
+    height: calc(100% - 60px);
+    background-color: lightblue;
+}
+
+.chat {
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+}
+
+.messaggio {
+    height: 60px;
+    background-color: white;
+}
