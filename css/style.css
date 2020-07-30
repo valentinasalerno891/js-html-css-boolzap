@@ -37,7 +37,7 @@ header {
 }
 
 .header-left {
-    width: 400px;
+    width: 350px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,7 +60,7 @@ i {
 }
 
 .header-right {
-    width: calc(100% - 400px);
+    width: calc(100% - 350px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,10 +68,10 @@ i {
 }
 
 .info-ultimo-accesso {
-    width: 490px;
+    width: 535px;
 }
 
-h2 {
+h2, p {
     font-size: 15px;
     font-weight: 500;
 }
@@ -94,19 +94,18 @@ h3 {
 /* ASIDE */
 
 aside {
-    height: calc(100% - 60px);
-    width: 400px;
+    height: calc(100% - 65px);
+    width: 350px;
     background-color: lightgrey;
 }
 
 .bar-notifiche {
-    height: 60px;
+    height: 65px;
     background-color: #8edafc;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 10px;
-}
+    padding: 15px 15px 15px;}
 
 .bell {
     padding-right: 10px;
@@ -125,18 +124,36 @@ aside {
 
 .search-bar {
     height: 40px;
-    background-color: white;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.search-bar i {
+    font-size: 15px;
+    padding-right: 30px;
+}
+
+.search-bar input {
+    width: 345px;
+    font-size: 12px;
+    font-family: inherit;
+    border: transparent;
+	padding: 8px 0px 8px 3px;
 }
 
 .contatti {
     height: calc(100% - 100px);
     overflow-y: scroll;
+    background-color: white;
 }
 
 /* MAIN */
 
 main {
-    width: calc(100% - 400px);
+    width: calc(100% - 350px);
     height: calc(100% - 60px);
     background-image: url('https://i.pinimg.com/564x/b1/61/42/b161420b5d0aea422d41feba57fca52c.jpg');
     background-repeat: no-repeat;
@@ -155,14 +172,39 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-right: 20px;
 }
 
 .messaggio input {
-    width: 530px;
+    width: 620px;
     background-color: white;
     border-radius: 2px;
     padding: 12px;
     text-decoration-color: lightgrey;
     border: transparent;
     font-family: inherit;
+}
+
+.message {
+    width: 150px;
+    height: 55px;
+    margin: 15px;
+    clear: both;
+    border-radius: 8px;
+    text-align: justify;
+    padding: 10px;
+}
+
+.sent {
+    float: right;
+    background-color: #d5f9bb;
+}
+
+.received {
+    float: left;
+    background-color: white;
+}
+
+.paragrafo {
+
 }

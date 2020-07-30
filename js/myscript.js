@@ -15,3 +15,40 @@
 //
 // //inserisco l'elemento clonato nel DOM
 // $('.elementi-copiati').append(elemento);
+
+$("#testoMioMessaggio").keydown(function(){
+    if (event.which == 13 || event.keyCode == 13) {
+        invioMessaggio();
+    }
+})
+
+
+
+// ***FUNZIONI***
+
+function invioMessaggio(){
+    // 1 step -- prendo il valore:
+    var valore = $("#testoMioMessaggio").val();
+    // 2 step -- creo clone del template (parto da .message):
+    var clone = $(".template .message").clone();
+    // 3 step -- aggiungo una classe:
+    clone.addClass("sent");
+    // 4 step -- inserisco il testo:
+    clone.find(".paragrafo").append(valore);
+    // 5 step - inserimento dell'elemento nel DOM:
+    $(".chat").append(clone);
+    // 6 step - risposta automatica:
+    setTimeout(autoReply,2000);
+    // console.log('ciao');
+}
+
+function autoReply(){
+    // 1 step - creo clone del template:
+    var clone2 = $(".template .message").clone();
+    // 2 step - aggiungo una classe:
+    clone2.addClass("received");
+    // 3 step - inserisco il testo:
+    clone2.find(".paragrafo").append("Ciao!");
+    // 4 step - inserimento dell'elemento nel DOM:
+    $(".chat").append(clone2);
+}
