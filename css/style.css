@@ -50,7 +50,8 @@ header {
 }
 
 .my-avatar,
-.ultimo-accesso img {
+.ultimo-accesso,
+.contatti img {
     width: 65px;
 }
 
@@ -71,8 +72,8 @@ i {
     width: 535px;
 }
 
-h2, p {
-    font-size: 15px;
+h2 {
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -150,6 +151,33 @@ aside {
     background-color: white;
 }
 
+.contatto {
+    height: 70px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.contatto:hover {
+    background-color: lightgrey;
+}
+
+.contatto p {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.nome-contatto {
+    padding-left: 10px;
+}
+
+.orario-chat {
+    font-size: 12px;
+    padding-bottom: 14px;
+    padding-left: 27px;
+}
+
 /* MAIN */
 
 main {
@@ -205,6 +233,7 @@ main {
     background-color: white;
 }
 
-.paragrafo {
-
+#orario {
+    float: right;
+    font-size: 12px;
 }

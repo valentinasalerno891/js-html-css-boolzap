@@ -35,8 +35,11 @@ function invioMessaggio(){
     clone.addClass("sent");
     // 4 step -- inserisco il testo:
     clone.find(".paragrafo").append(valore);
+    // (aggiunta dell'orario):
+    clone.find('.ora-messaggio').append(orario());
     // 5 step - inserimento dell'elemento nel DOM:
     $(".chat").append(clone);
+    $(".chat").append(orario());
     // 6 step - risposta automatica:
     setTimeout(autoReply,2000);
     // console.log('ciao');
@@ -49,6 +52,25 @@ function autoReply(){
     clone2.addClass("received");
     // 3 step - inserisco il testo:
     clone2.find(".paragrafo").append("Ciao!");
+    // (aggiunta dell'orario):
+    clone2.find('.ora-messaggio').append(orario());
     // 4 step - inserimento dell'elemento nel DOM:
     $(".chat").append(clone2);
+    $(".chat").append(orario());
+
+}
+
+function addZero(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+function orario() {
+  var d = new Date();
+  var x = document.getElementById("orario");
+  var h = addZero(d.getHours());
+  var m = addZero(d.getMinutes());
+  x.innerHTML = h + ":" + m;
 }
