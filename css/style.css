@@ -45,14 +45,12 @@ header {
     padding-left: 10px;
 }
 
-.header-menu-left i {
-    padding-right: 12px;
+img {
+    width: 65px;
 }
 
-.my-avatar,
-.ultimo-accesso,
-.contatti img {
-    width: 65px;
+.header-menu-left i {
+    padding-right: 12px;
 }
 
 i {
@@ -183,7 +181,8 @@ aside {
 main {
     width: calc(100% - 350px);
     height: calc(100% - 60px);
-    background-image: url('https://i.pinimg.com/564x/b1/61/42/b161420b5d0aea422d41feba57fca52c.jpg');
+    background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+    background-position:
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.9;
@@ -215,12 +214,14 @@ main {
 
 .message {
     width: 150px;
-    height: 55px;
+    /* height: 55px; */
+    font-size: 12px;
     margin: 15px;
     clear: both;
     border-radius: 8px;
     text-align: justify;
     padding: 10px;
+    word-wrap: break-word;
 }
 
 .sent {

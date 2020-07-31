@@ -5,41 +5,36 @@
 // In poche parole se il mio template prevede un tag p (possibilmente con una determinata classe) dove inserire del testo, devo trovarlo e poi aggiungere il testo!
 // Ricordatevi anche che alla fine il clone va pushato (incollato) dove desiderate.
 
-// //faccio il clone del template
-// var elemento = $('.template .messaggio').clone();
-// //personalizzo il clone aggiungendo del testo dove voglio
-// elemento.find('.titolo').append('ciao sono il titolo')
-// elemento.find('.descrizione').append('ciao sono lo span');
-// //aggiungo la classe
-// elemento.addClass('rosso');
-//
-// //inserisco l'elemento clonato nel DOM
-// $('.elementi-copiati').append(elemento);
-
-$("#testoMioMessaggio").keydown(function(){
-    if (event.which == 13 || event.keyCode == 13) {
+$(document).ready(function(){
+    $('icon-send').click(function(){
         invioMessaggio();
-    }
-})
+    });
+
+    $("#testoMioMessaggio").keydown(function(){
+        if (event.which == 13 || event.keyCode == 13) {
+            invioMessaggio();
+        }
+    });
+});
 
 
 
 // ***FUNZIONI***
 
 function invioMessaggio(){
-    // 1 step -- prendo il valore:
+    // 1 step -- prendo il valore di input:
     var valore = $("#testoMioMessaggio").val();
     // 2 step -- creo clone del template (parto da .message):
-    var clone = $(".template .message").clone();
+    var nuovoMessaggio = $(".template .message").clone();
     // 3 step -- aggiungo una classe:
-    clone.addClass("sent");
+    nuovoMessaggio.addClass("sent");
     // 4 step -- inserisco il testo:
-    clone.find(".paragrafo").append(valore);
+    nuovoMessaggio.find(".paragrafo").append(valore);
     // (aggiunta dell'orario):
-    clone.find('.ora-messaggio').append(orario());
+    var orario = data();
+    nuovoMessaggio.find('.ora-messaggio').append(orario);
     // 5 step - inserimento dell'elemento nel DOM:
-    $(".chat").append(clone);
-    $(".chat").append(orario());
+    $(".chat").append(nuovoMessaggio);
     // 6 step - risposta automatica:
     setTimeout(autoReply,2000);
     // console.log('ciao');
@@ -53,11 +48,22 @@ function autoReply(){
     // 3 step - inserisco il testo:
     clone2.find(".paragrafo").append("Ciao!");
     // (aggiunta dell'orario):
-    clone2.find('.ora-messaggio').append(orario());
+    var orario = data();
+    clone2.find('.ora-messaggio').append(orario);
     // 4 step - inserimento dell'elemento nel DOM:
     $(".chat").append(clone2);
     $(".chat").append(orario());
 
+}
+
+
+function data() {
+  var d = new Date();
+  // var x = document.getElementById("orario");
+  var ora = addZero(d.getHours());
+  var minuti = addZero(d.getMinutes());
+  return ora + ':' + minuti;
+  // x.innerHTML = h + ":" + m;
 }
 
 function addZero(i) {
@@ -65,12 +71,4 @@ function addZero(i) {
     i = "0" + i;
   }
   return i;
-}
-
-function orario() {
-  var d = new Date();
-  var x = document.getElementById("orario");
-  var h = addZero(d.getHours());
-  var m = addZero(d.getMinutes());
-  x.innerHTML = h + ":" + m;
 }
