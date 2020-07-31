@@ -71,12 +71,12 @@ i {
 }
 
 h2 {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
 }
 
 h3 {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     color: grey;
 }
@@ -124,15 +124,19 @@ aside {
 .search-bar {
     height: 40px;
     background-color: #f7f7f7;
+    padding: 5px;
+}
+
+.container {
+    background-color: #ffffff;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 20px;
 }
 
 .search-bar i {
     font-size: 15px;
-    padding-right: 30px;
+    padding: 0 23px;
 }
 
 .search-bar input {
@@ -164,6 +168,7 @@ aside {
 .contatto p {
     font-size: 12px;
     font-weight: 400;
+    color: grey;
 }
 
 .nome-contatto {
@@ -171,9 +176,10 @@ aside {
 }
 
 .orario-chat {
-    font-size: 12px;
+    font-size: 11px;
     padding-bottom: 14px;
     padding-left: 27px;
+    color: grey;
 }
 
 /* MAIN */
@@ -199,17 +205,18 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-right: 20px;
+    padding: 0 20px;
 }
 
 .messaggio input {
     width: 620px;
+    font-family: inherit;
+    font-size: 12px;
+    text-decoration-color: lightgrey;
     background-color: white;
     border-radius: 2px;
-    padding: 12px;
-    text-decoration-color: lightgrey;
     border: transparent;
-    font-family: inherit;
+    padding: 12px;
 }
 
 .message {

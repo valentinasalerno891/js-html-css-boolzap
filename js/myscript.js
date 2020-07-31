@@ -6,7 +6,7 @@
 // Ricordatevi anche che alla fine il clone va pushato (incollato) dove desiderate.
 
 $(document).ready(function(){
-    $('icon-send').click(function(){
+    $('.icon-send').click(function(){
         invioMessaggio();
     });
 
@@ -24,6 +24,7 @@ $(document).ready(function(){
 function invioMessaggio(){
     // 1 step -- prendo il valore di input:
     var valore = $("#testoMioMessaggio").val();
+    $("#testoMioMessaggio").val('');
     // 2 step -- creo clone del template (parto da .message):
     var nuovoMessaggio = $(".template .message").clone();
     // 3 step -- aggiungo una classe:
@@ -38,6 +39,8 @@ function invioMessaggio(){
     // 6 step - risposta automatica:
     setTimeout(autoReply,2000);
     // console.log('ciao');
+    nuovoMessaggio.find(".paragrafo").append('');
+
 }
 
 function autoReply(){
@@ -52,8 +55,6 @@ function autoReply(){
     clone2.find('.ora-messaggio').append(orario);
     // 4 step - inserimento dell'elemento nel DOM:
     $(".chat").append(clone2);
-    $(".chat").append(orario());
-
 }
 
 
