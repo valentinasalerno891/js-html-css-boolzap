@@ -1,4 +1,4 @@
-// Milestone 2
+//**** Milestone 2****
 // Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e, cliccando invia (l'icona o anche con enter), il testo viene aggiunto al thread sopra, come messaggio verde.
 // Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 // Suggerimento: Utilizzate il template come vi ho fatto vedere a lezione, ma soprattutto state attenti a trovare l'elemento giusto dove inserire (appendere) i valori ricavati dal campo input.
@@ -18,46 +18,58 @@ $(document).ready(function(){
     });
 
 
-// Milestone 3
+//**** Milestone 3****
 // a) Ricerca utenti: scrivendo qualcosa nell'input a sinistra, vengono visualizzati solo i
 // contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
 // “mar” rimangono solo Marco e Martina)
 
-    // $('.search-bar input').keyup(function(){
-    //     var testo = $('.search-bar input').val().toLowerCase();
-    //     // console.log(testo);
-    //
-    //     $('.nome-contatto').each(function(){
-    //         var nomeContatto = $(this).find('.contact-name').text();
-    //         nomeContatto = nomeContatto..toLowerCase();
-    //         if(nomeContatto.includes(testo){
-    //             $(this).show();
-    //         }) else {
-    //             $(this).hide();
-    //         };
-    //     });
-    // });
+    $('.search-bar input').keyup(function(){
+        var testo = $('.search-bar input').val().toLowerCase();
+
+        $('.contatto').each(function(){
+            var nomeContatto = $(this).find('.contact-name').text();
+            nomeContatto = nomeContatto.toLowerCase();
+            if(nomeContatto.includes(testo)){
+                $(this).show();
+            } else {
+                $(this).hide();
+            };
+        });
+    });
 
 // b) Click sul contatto: mostra la conversazione del contatto cliccato, è possibile inserire
 // nuovi messaggi per ogni conversazione.
 
-    $(document).on('click', '.contact-name', function(){
+    $(document).on('click', '.contatto', function(){
         //trovo posizione contatto
         var posizione = $(this).index();
         //tolgo classe active al contatto cliccato
-        $('.contact-name').removeClass('active');
+        $('.contatto').removeClass('active');
         //aggiungo classe active al contatto cliccato
         $(this).addClass('active');
         //tolgo classe active alla chat corrisp.
         $('.chat').removeClass('active');
+        $('.chat').addClass('active');
+
         //visualizzo chat corrisp. al contatto selezionato
+        // $('.chat').removeClass('active').addClass('hide');
+        // $('.chat').eq(posizione).removeClass('hide').addClass('active');
+
         $('.chat').eq(posizione).addClass('active');
         //ricavo nome contatto selezionato
         var nome = $(this).find('.contact-name').text();
         //lo inserisco nell'intestazione in alto
-        $('.info-ultimo-accesso .contact-name-active h2').text(nome);
-        //
-
+        $('.info-ultimo-accesso .contact-name.active').text(nome);
+        //idem per img:
+        //ricavo img in base alla selezione
+        var img = $('.contatto.active img').attr('src');
+        //la inserisco nell'intestazione in alto
+        $('.ultimo-accesso img').attr('src', img);
+        //idem per orario:
+        //ricavo info in base alla selezione
+        var ora = $(this).find('.orario-chat span').text();
+        //la inserisco nell'intestazione in alto
+        $('.info-ultimo-accesso span').text(ora);
     });
 });
 
@@ -84,6 +96,15 @@ function invioMessaggio(){
     // console.log('ciao');
     nuovoMessaggio.find(".paragrafo").append('');
 }
+
+function nuovoMessaggio(contenuto,classeCss){
+    var cloneTemplateMessaggio = $('.conversazione.active #template-messaggio .riga-messaggio').clone();  // clono il template del messaggio
+    cloneTemplateMessaggio.find('.testo-messaggio').append(contenuto);                              // appendo in p il contenuto
+    cloneTemplateMessaggio.find('.messaggio').addClass(classeCss);                                  // aggiungo la classeCss per personalizzare il css
+    cloneTemplateMessaggio.find('.ora-messaggio').append(oraInvio());                               // aggiungo l'ora di invio
+    $('.conversazione.active').append(cloneTemplateMessaggio);                             // appendo il messaggio creato in .conversazione
+}
+
 
 function autoReply(){
     // 1 step - creo clone del template:
