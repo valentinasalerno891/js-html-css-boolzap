@@ -6,6 +6,7 @@
 // Ricordatevi anche che alla fine il clone va pushato (incollato) dove desiderate.
 
 $(document).ready(function(){
+
     $('.icon-send').click(function(){
         invioMessaggio();
     });
@@ -15,8 +16,50 @@ $(document).ready(function(){
             invioMessaggio();
         }
     });
-});
 
+
+// Milestone 3
+// a) Ricerca utenti: scrivendo qualcosa nell'input a sinistra, vengono visualizzati solo i
+// contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+// “mar” rimangono solo Marco e Martina)
+
+    // $('.search-bar input').keyup(function(){
+    //     var testo = $('.search-bar input').val().toLowerCase();
+    //     // console.log(testo);
+    //
+    //     $('.nome-contatto').each(function(){
+    //         var nomeContatto = $(this).find('.contact-name').text();
+    //         nomeContatto = nomeContatto..toLowerCase();
+    //         if(nomeContatto.includes(testo){
+    //             $(this).show();
+    //         }) else {
+    //             $(this).hide();
+    //         };
+    //     });
+    // });
+
+// b) Click sul contatto: mostra la conversazione del contatto cliccato, è possibile inserire
+// nuovi messaggi per ogni conversazione.
+
+    $(document).on('click', '.contact-name', function(){
+        //trovo posizione contatto
+        var posizione = $(this).index();
+        //tolgo classe active al contatto cliccato
+        $('.contact-name').removeClass('active');
+        //aggiungo classe active al contatto cliccato
+        $(this).addClass('active');
+        //tolgo classe active alla chat corrisp.
+        $('.chat').removeClass('active');
+        //visualizzo chat corrisp. al contatto selezionato
+        $('.chat').eq(posizione).addClass('active');
+        //ricavo nome contatto selezionato
+        var nome = $(this).find('.contact-name').text();
+        //lo inserisco nell'intestazione in alto
+        $('.info-ultimo-accesso .contact-name-active h2').text(nome);
+        //
+
+    });
+});
 
 
 // ***FUNZIONI***
@@ -40,7 +83,6 @@ function invioMessaggio(){
     setTimeout(autoReply,2000);
     // console.log('ciao');
     nuovoMessaggio.find(".paragrafo").append('');
-
 }
 
 function autoReply(){
@@ -56,7 +98,6 @@ function autoReply(){
     // 4 step - inserimento dell'elemento nel DOM:
     $(".chat").append(clone2);
 }
-
 
 function data() {
   var d = new Date();

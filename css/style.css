@@ -20,7 +20,7 @@ body {
     width: 80vw;
     height: 90vh;
     background-color: white;
-    margin: 30px auto;
+    margin: 5vh auto;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -30,10 +30,9 @@ body {
 
 header {
     background-color: #eaeaea;
-    /* height: 60px; */
+    height: 70px;
     width: 100%;
     display: flex;
-    padding: 3px 0;
 }
 
 .header-left {
@@ -42,11 +41,12 @@ header {
     justify-content: space-between;
     align-items: center;
     border-right: 1px solid lightgrey;
-    padding-left: 10px;
+    padding: 5px 0;
 }
 
 img {
     width: 65px;
+    margin-left: 10px;
 }
 
 .header-menu-left i {
@@ -63,14 +63,16 @@ i {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
+    padding: 5px 0;
 }
 
 .info-ultimo-accesso {
     width: 535px;
 }
 
-h2 {
+.notifiche,
+.contact-name,
+.contact-name-active {
     font-size: 13px;
     font-weight: 500;
 }
@@ -93,7 +95,7 @@ h3 {
 /* ASIDE */
 
 aside {
-    height: calc(100% - 65px);
+    height: calc(100% - 70px);
     width: 350px;
     background-color: lightgrey;
 }
@@ -110,7 +112,7 @@ aside {
     padding-right: 10px;
 }
 
-.circle{
+.circle {
 	display: inline-block;
 	width: 45px;
 	height: 45px;
@@ -148,7 +150,7 @@ aside {
 }
 
 .contatti {
-    height: calc(100% - 100px);
+    height: calc(100% - 105px);
     overflow-y: scroll;
     background-color: white;
 }
@@ -156,13 +158,12 @@ aside {
 .contatto {
     height: 70px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
 }
 
 .contatto:hover {
-    background-color: lightgrey;
+    background-color: #eaeaea;
 }
 
 .contatto p {
@@ -171,24 +172,20 @@ aside {
     color: grey;
 }
 
-.nome-contatto {
-    padding-left: 10px;
-}
-
 .orario-chat {
     font-size: 11px;
+    color: grey;
     padding-bottom: 14px;
     padding-left: 27px;
-    color: grey;
+    margin-right: 10px;
 }
 
 /* MAIN */
 
 main {
     width: calc(100% - 350px);
-    height: calc(100% - 60px);
+    height: calc(100% - 70px);
     background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
-    background-position:
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.9;
@@ -197,6 +194,10 @@ main {
 .chat {
     height: calc(100% - 60px);
     overflow-y: scroll;
+}
+
+.hide {
+    display: none;
 }
 
 .messaggio {
