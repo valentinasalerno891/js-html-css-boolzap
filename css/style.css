@@ -198,14 +198,11 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.9;
-    /* position: relative; */
 }
 
 .messaggio-container {
     width: 100%;
     height: 60px;
-    /* position: absolute;
-    top: 81.5%; */
 }
 
 .chat {
@@ -213,9 +210,8 @@ main {
     overflow-y: scroll;
 }
 
-/* .chat  */
 .messaggio {
-    height: inherit;
+    height: 60px;
     background-color: #f3eeea;
     display: flex;
     justify-content: space-around;
@@ -223,7 +219,6 @@ main {
     padding: 0 20px;
 }
 
-/* .chat */
 .messaggio input {
     width: 620px;
     font-family: inherit;

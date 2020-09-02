@@ -48,14 +48,9 @@ $(document).ready(function(){
         //aggiungo classe active al contatto cliccato
         $(this).addClass('active');
         //tolgo classe active alla chat corrisp.
-        $('.chat').removeClass('active');
-        $('.chat').addClass('active');
-
-        //visualizzo chat corrisp. al contatto selezionato
-        // $('.chat').removeClass('active').addClass('hide');
-        // $('.chat').eq(posizione).removeClass('hide').addClass('active');
-
-        $('.chat').eq(posizione).addClass('active');
+        $('.chat.active').removeClass('active');
+        $('.chat').addClass('hide');
+        $('.chat').eq(posizione).removeClass('hide').addClass('active');
         //ricavo nome contatto selezionato
         var nome = $(this).find('.contact-name').text();
         //lo inserisco nell'intestazione in alto
@@ -90,21 +85,12 @@ function invioMessaggio(){
     var orario = data();
     nuovoMessaggio.find('.ora-messaggio').append(orario);
     // 5 step - inserimento dell'elemento nel DOM:
-    $(".chat").append(nuovoMessaggio);
+    $(".chat.active").append(nuovoMessaggio);
     // 6 step - risposta automatica:
     setTimeout(autoReply,2000);
     // console.log('ciao');
     nuovoMessaggio.find(".paragrafo").append('');
 }
-
-function nuovoMessaggio(contenuto,classeCss){
-    var cloneTemplateMessaggio = $('.conversazione.active #template-messaggio .riga-messaggio').clone();  // clono il template del messaggio
-    cloneTemplateMessaggio.find('.testo-messaggio').append(contenuto);                              // appendo in p il contenuto
-    cloneTemplateMessaggio.find('.messaggio').addClass(classeCss);                                  // aggiungo la classeCss per personalizzare il css
-    cloneTemplateMessaggio.find('.ora-messaggio').append(oraInvio());                               // aggiungo l'ora di invio
-    $('.conversazione.active').append(cloneTemplateMessaggio);                             // appendo il messaggio creato in .conversazione
-}
-
 
 function autoReply(){
     // 1 step - creo clone del template:
@@ -117,7 +103,7 @@ function autoReply(){
     var orario = data();
     clone2.find('.ora-messaggio').append(orario);
     // 4 step - inserimento dell'elemento nel DOM:
-    $(".chat").append(clone2);
+    $(".chat.active").append(clone2);
 }
 
 function data() {
